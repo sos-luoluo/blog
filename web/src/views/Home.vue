@@ -1,6 +1,7 @@
 <template>
   <div class="home" :style="{ backgroundImage: bg }">
     <div class="content">
+      <Guide />
       <div class="title">落落的个人博客</div>
       <div class="tips">博客建设中</div>
       <router-link class="link" :to="{ path: '/gobang' }"
@@ -14,14 +15,25 @@
 import { Component, Vue } from "vue-property-decorator";
 const bg1 = require("@/assets/bg1.jpg");
 const bg2 = require("@/assets/bg2.jpg");
+const bg3 = require("@/assets/bg3.jpg");
+const bg4 = require("@/assets/bg4.jpg");
+import Guide from "@/views/layer/guide.vue";
+
 @Component({
-  components: {}
+  components: {
+    Guide
+  }
 })
 export default class Home extends Vue {
-  bgList: Array<string> = ["url(" + bg1 + ")", "url(" + bg2 + ")"];
+  bgList: Array<string> = [
+    "url(" + bg1 + ")",
+    "url(" + bg2 + ")",
+    "url(" + bg3 + ")",
+    "url(" + bg4 + ")"
+  ];
   bg: String = "";
   created() {
-    let index = Math.random() > 0.5 ? 0 : 1;
+    let index = Math.floor(Math.random() * 4);
     this.bg = this.bgList[index];
   }
   mounted() {}
