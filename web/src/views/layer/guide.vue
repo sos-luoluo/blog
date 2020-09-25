@@ -3,8 +3,8 @@
     <div class="wrap">
       <div class="box">
         <div class="logo_box">
-          <!-- <img :src="logoUrl" alt="" class="img" /> -->
-          <div class="text">落落的个人博客</div>
+          <img :src="logoUrl" alt="" class="img" />
+          <!-- <div class="text">落落的个人博客</div> -->
         </div>
         <div class="menu_box">
           <div class="line" :style="{ left: lineLeft + '%' }"></div>
@@ -28,7 +28,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Ref } from "vue-property-decorator";
 import router from "@/router";
-const logo: string = require("@/assets/logo.png");
+const logo: string = require("@/assets/logo2.png");
 @Component
 export default class Guide extends Vue {
   @Prop(String) state!: string;
@@ -75,6 +75,7 @@ export default class Guide extends Vue {
     width: 100%;
     height: 0.6rem;
     background-color: @c_bg_tips;
+    box-shadow: 0 0.02rem 0.1rem 0 rgba(0, 0, 0, 0.1);
     .box {
       width: 100%;
       height: 100%;
@@ -86,14 +87,14 @@ export default class Guide extends Vue {
       justify-content: space-between;
       .logo_box {
         // width: 1.5rem;
-        height: 100%;
+        height: 80%;
         margin-right: 20%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         .img {
           display: block;
-          width: 100%;
+          // width: 100%;
           height: 100%;
           object-fit: contain;
         }

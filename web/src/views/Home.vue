@@ -22,6 +22,14 @@
         >
       </div>
     </div>
+    <div class="content_wrap">
+      <div class="content_box">
+        <div class="auth_box">
+          <Auth></Auth>
+        </div>
+        <div class="article_box"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,9 +43,11 @@ const icon = require("@/assets/ic_comic.png");
 import Guide from "@/views/layer/guide.vue";
 import Swiper from "swiper";
 import "swiper/css/swiper.css";
+import Auth from "@/views/layer/auth.vue";
 @Component({
   components: {
-    Guide
+    Guide,
+    Auth
   }
 })
 export default class Home extends Vue {
@@ -194,6 +204,19 @@ export default class Home extends Vue {
       .link {
         font-size: 0.14rem;
         line-height: 1.5;
+      }
+    }
+  }
+  .content_wrap {
+    .content_box {
+      max-width: @minWidth;
+      margin: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0.3rem;
+      .auth_box {
+        width: 20%;
       }
     }
   }
