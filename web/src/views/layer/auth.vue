@@ -6,15 +6,32 @@
     <div class="name">落落的个人博客</div>
     <div class="text">少年 愿你努力过后 成为自己梦里那样！</div>
     <div class="account_box">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+      <div class="item">
+        <div class="icon_box">
+          <svg-icon :icon-class="'bilibili'"></svg-icon>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon_box">
+          <svg-icon :icon-class="'github'"></svg-icon>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon_box">
+          <svg-icon :icon-class="'weixin'"></svg-icon>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon_box">
+          <svg-icon :icon-class="'email'"></svg-icon>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Ref } from "vue-property-decorator";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 const logo: string = require("@/assets/logo.png");
 @Component
 export default class Auth extends Vue {
@@ -55,6 +72,18 @@ export default class Auth extends Vue {
     font-size: @f_text;
     color: @c_bg_title;
     line-height: 1.2;
+  }
+  .account_box {
+    width: 100%;
+    padding: 0.1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .item {
+      .icon_box {
+        font-size: 0.2rem;
+      }
+    }
   }
 }
 </style>
