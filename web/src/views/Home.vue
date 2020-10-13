@@ -26,10 +26,25 @@
       <div class="content_box">
         <div class="auth_box">
           <Auth></Auth>
+          <div class="music">
+            <iframe
+              class="iframe"
+              frameborder="no"
+              border="0"
+              marginwidth="0"
+              marginheight="0"
+              width="330"
+              height="86"
+              src="//music.163.com/outchain/player?type=2&id=1330348068&auto=1&height=66"
+            ></iframe>
+          </div>
         </div>
-        <div class="article_box"></div>
+        <div class="article_box">
+          <Topic></Topic>
+        </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -44,10 +59,14 @@ import Guide from "@/views/layer/guide.vue";
 import Swiper from "swiper";
 import "swiper/css/swiper.css";
 import Auth from "@/views/layer/auth.vue";
+import Topic from "@/views/layer/topic.vue";
+import Footer from "@/views/layer/footer.vue";
 @Component({
   components: {
     Guide,
-    Auth
+    Auth,
+    Topic,
+    Footer
   }
 })
 export default class Home extends Vue {
@@ -217,7 +236,20 @@ export default class Home extends Vue {
       justify-content: flex-start;
       padding: 0.3rem;
       .auth_box {
-        width: 20%;
+        width: 25%;
+        .music {
+          height: auto;
+          .iframe {
+            height: auto;
+            width: 100%;
+            display: block;
+            font-size: 100%;
+          }
+        }
+      }
+      .article_box {
+        flex: 1;
+        overflow: hidden;
       }
     }
   }

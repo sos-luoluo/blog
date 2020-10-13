@@ -49,6 +49,7 @@ export default class Auth extends Vue {
   align-items: center;
   justify-content: flex-start;
   box-shadow: 0 0.02rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.1rem;
   .headportrait {
     padding: 0.1rem 0;
     .img {
@@ -56,6 +57,8 @@ export default class Auth extends Vue {
       width: 0.85rem;
       height: 0.85rem;
       border-radius: 50%;
+      border: 0.01rem solid @c_bg_line;
+      box-shadow: 0 0.02rem 0.1rem 0 rgba(0, 0, 0, 0.1);
     }
   }
   .name {
@@ -75,13 +78,18 @@ export default class Auth extends Vue {
   }
   .account_box {
     width: 100%;
-    padding: 0.1rem 0;
+    padding: 0.1rem 0.2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     .item {
       .icon_box {
-        font-size: 0.2rem;
+        font-size: 0.3rem;
+        color: @c_title;
+        cursor: pointer;
+        &:hover {
+          color: @c_active;
+        }
       }
     }
   }

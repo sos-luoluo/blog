@@ -42,7 +42,7 @@ export default class Guide extends Vue {
     { id: 2, title: "旅行", path: "/travel" },
     { id: 3, title: "动漫", path: "/comic" },
     { id: 4, title: "电影", path: "/movie" },
-    { id: 5, title: "工作", path: "/work" }
+    { id: 5, title: "技术", path: "/work" }
   ];
   constructor() {
     super();
@@ -133,7 +133,7 @@ export default class Guide extends Vue {
           }
           .title {
             font-size: @f_title_2;
-            color: @c_title;
+            color: @c_333;
             line-height: 1.5;
             font-weight: bold;
           }
