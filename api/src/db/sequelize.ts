@@ -4,7 +4,7 @@ const sequelize = new Sequelize(config.mysql.database, config.mysql.user, config
     dialect: 'mysql',
     host: config.mysql.host,
     port: config.mysql.port,
-    logging: false,
+    logging: true,
     timezone: '+08:00',
     define: {
         charset: 'utf8mb4',
@@ -12,10 +12,11 @@ const sequelize = new Sequelize(config.mysql.database, config.mysql.user, config
         createdAt: "created_at",
         updatedAt: "updated_at",
         deletedAt: false,
+        freezeTableName: true,
     },
     sync: {
         force: false,
-        alter: false
+        alter: true
     },
     pool: {
         max: config.mysql.connectionLimit
