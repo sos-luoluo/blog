@@ -9,9 +9,16 @@ UserModel.init({
         autoIncrement: true,
         primaryKey: true,
     },
-    name:DataTypes.STRING,
+    name:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
     password: DataTypes.STRING,
-    level:DataTypes.BIGINT
+    level:{
+        type: DataTypes.BIGINT,
+        allowNull: true
+    }
 }, {
     sequelize,
     tableName: 'USER',
