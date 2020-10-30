@@ -8,5 +8,10 @@ export default {
         port: 3306,
         database: 'blog',
         connectionLimit: 50,
+    },
+    redis:{
+        host: '132.232.75.6',
+        port: 6379,
+        password: '20061226'
     }
 }

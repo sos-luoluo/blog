@@ -7,14 +7,22 @@
     <div class="text">少年 愿你努力过后 成为自己梦里那样！</div>
     <div class="account_box">
       <div class="item">
-        <div class="icon_box">
+        <a
+          class="icon_box"
+          href="https://space.bilibili.com/273745872"
+          target="_blank"
+        >
           <svg-icon :icon-class="'bilibili'"></svg-icon>
-        </div>
+        </a>
       </div>
       <div class="item">
-        <div class="icon_box">
+        <a
+          class="icon_box"
+          href="https://github.com/sos-luoluo"
+          target="_blank"
+        >
           <svg-icon :icon-class="'github'"></svg-icon>
-        </div>
+        </a>
       </div>
       <div class="item">
         <div class="icon_box">
@@ -22,9 +30,9 @@
         </div>
       </div>
       <div class="item">
-        <div class="icon_box">
+        <a class="icon_box" href="mailto:re_an@qq.com">
           <svg-icon :icon-class="'email'"></svg-icon>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -84,6 +92,7 @@ export default class Auth extends Vue {
     justify-content: space-between;
     .item {
       .icon_box {
+        display: block;
         font-size: 0.3rem;
         color: @c_title;
         cursor: pointer;

@@ -16,7 +16,7 @@
       </div>
       <div class="banner_content">
         <div class="title">落落的个人博客</div>
-        <div class="tips">博客建设中</div>
+        <div class="tips">最近正在写api项目，目标是年底前正式上线</div>
         <router-link class="link" :to="{ path: '/gobang' }"
           >点击这里下五子棋,适合手机上玩</router-link
         >
