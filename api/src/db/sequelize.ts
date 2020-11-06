@@ -23,4 +23,14 @@ const sequelize = new Sequelize(config.mysql.database, config.mysql.user, config
     }
 });
 
+(async () => {
+    try {
+        await sequelize.authenticate();
+        await sequelize.sync();
+        console.log("db init success");
+    } catch (error) {
+        console.error("db init error", error);
+    }
+})();
+
 export default sequelize
