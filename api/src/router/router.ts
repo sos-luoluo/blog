@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-import {login} from "../service/user"
+import {login,resetPassword} from "../service/user"
 const router = new Router({
     prefix: '/api'
 });
@@ -13,4 +13,5 @@ router.get("/test", async (ctx: any, next: any) => {
     next()
 });
 router.post("/login",login)
+router.post("/resetpassword",resetPassword)
 export default router
