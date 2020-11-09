@@ -1,8 +1,35 @@
-import router from "../router/router";
-router.get("/test", (ctx: any, next: any) => {
-    ctx.body = "这是测试接口";
-});
-router.get("/login", async (ctx: any, next: any) => {
-    console.log(ctx.request.body);
-    ctx.response.body = "success";
-});
+import UserModel from "../model/user";
+import exception from "../exception/index";
+import { v4 as uuidv4 } from 'uuid';
+const md5 = require('md5');
+import {delUserByToken,setUserByToken} from "../auth/auth"
+
+async function login (ctx: any, next: any) {
+    const user = await UserModel.findOne({ where: { username: ctx.request.body.username,password:md5(ctx.request.body.password)} });
+    if(user){
+        let token:string|undefined=ctx.cookies.get("token")
+        if(token){
+           await delUserByToken(token)
+        }
+        let newID=uuidv4()
+        await setUserByToken(newID,user)
+        ctx.cookies.set("token", newID, {
+            maxAg: Date.now()+1000*60*60*24*10,
+            path: "/",
+            httpOnly: true,
+            overwrite: true
+        })
+        ctx.body = JSON.stringify({
+            code: 0,
+            data:{},
+            message: "登录成功"
+        });
+    }else{
+        ctx.body = exception(1000);
+    }
+    next()
+}
+
+export {
+    login
+}
