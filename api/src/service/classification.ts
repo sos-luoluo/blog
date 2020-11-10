@@ -6,27 +6,23 @@ import { levelAuth } from "../auth/auth";
  * 获取分类列表
  */
 async function list(ctx: any, next: any) {
-    if (levelAuth(ctx, 50)) {
-        const { pageSize = 10, pageIndex = 1 } = ctx.request.body;
-        const list = await ClassificationModel.findAll({
-            offset: pageSize * (pageIndex - 1),
-            limit: pageSize,
-        });
-        const total = await ClassificationModel.count();
-        const res = {
-            code: 0,
-            data: {
-                pageSize: pageSize,
-                pageIndex: pageIndex,
-                list: list || [],
-                total: total,
-            },
-            message: "查询成功",
-        };
-        ctx.body = JSON.stringify(res);
-    } else {
-        ctx.body = exception(1010);
-    }
+    const { pageSize = 10, pageIndex = 1 } = ctx.request.body;
+    const list = await ClassificationModel.findAll({
+        offset: pageSize * (pageIndex - 1),
+        limit: pageSize,
+    });
+    const total = await ClassificationModel.count();
+    const res = {
+        code: 0,
+        data: {
+            pageSize: pageSize,
+            pageIndex: pageIndex,
+            list: list || [],
+            total: total,
+        },
+        message: "查询成功",
+    };
+    ctx.body = JSON.stringify(res);
     next();
 }
 
