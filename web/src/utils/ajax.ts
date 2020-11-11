@@ -58,12 +58,12 @@ function objectToFormData(
   appendFormData(obj, rootName);
   return formData;
 }
-
+axios.defaults.headers.post["Content-Type"] = "application/json";
 const request = axios.create({
   baseURL: ajaxConfig.urlHead,
   timeout: 30000,
-  xsrfCookieName: "JSESSIONID",
-  xsrfHeaderName: "X-XSRF-TOKEN",
+  xsrfCookieName: "token",
+  xsrfHeaderName: "token",
   params: {},
   paramsSerializer: function(params) {
     return qs.stringify(params);
@@ -102,7 +102,7 @@ request.interceptors.response.use(
     }
     if (res.status == 200 && res.data.code === 0) {
       return res.data;
-    } else if (res.data.code === 10000) {
+    } else if (res.data.code === 1000) {
       return Promise.reject({
         msg: "用户未登录"
       });
@@ -143,8 +143,6 @@ function ajaxWrap(params: any) {
   if (hasLoading) {
     ajaxLoading.service.show();
   }
-  // const token=localStorage.getItem('token')
-  // options.headers.token=token
   if (processData == true) {
     data = objectToFormData(data);
   }

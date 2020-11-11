@@ -8,10 +8,12 @@ import { ajax } from "@/utils/ajax";
 /**
  * 用户登录
  */
-export function login(data: { account: string; pwd: string }) {
+export function login(username: string, password: string) {
   return ajax({
-    url: "/userInfo/login",
-    data: data,
-    processData: true
+    url: "/user/login",
+    data: JSON.stringify({
+      username,
+      password
+    })
   });
 }

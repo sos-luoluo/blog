@@ -56,11 +56,7 @@ function getHost() {
  * @property {string} loadingText loading显示的文字
  */
 export const ajaxConfig = {
-  urlHead: environment == "development" ? "/api/v1" : "/api/v1",
-  wxHead:
-    environment == "development"
-      ? "wss://www.coininn.com/api/v1/"
-      : (isHTTPS ? "wss" : "ws") + "://" + getHost() + "/api/v1/",
+  urlHead: environment == "development" ? "http://localhost:5000/api/" : "/api",
   imgUpload: "",
   fileUpload: "",
   loadingText: "加载中"

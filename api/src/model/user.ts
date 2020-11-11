@@ -12,7 +12,7 @@ UserModel.init({
     username:{
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: "column"
     },
     password: DataTypes.STRING,
     level:{

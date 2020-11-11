@@ -10,7 +10,7 @@ import { regular } from "./constants";
 
 for (let [rule, validation] of Object.entries(rules)) {
   extend(rule, {
-    ...validation
+    ...validation.validate
   });
 }
 

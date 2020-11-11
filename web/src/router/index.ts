@@ -23,6 +23,16 @@ const routes = [
     path: "/gobang",
     name: "gobang",
     component: () => import("../views/Gobang.vue")
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("../views/admin/Login.vue")
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: () => import("../views/admin/Admin.vue")
   }
 ];
 
