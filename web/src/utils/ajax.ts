@@ -107,6 +107,7 @@ request.interceptors.response.use(
         msg: "用户未登录"
       });
     } else {
+      tips(res.data.message);
       return Promise.reject(res.data);
     }
   },
@@ -226,30 +227,30 @@ export class listAjax {
       {
         data: {},
         method: "POST",
-        current: 0,
-        size: 10
+        pageIndex: 0,
+        pageSize: 10
       },
       options
     );
   }
-  getList(current?: number) {
+  getList(pageIndex?: number) {
     if (this.listState !== 0) {
       return Promise.reject({
         msg: "list loading"
       });
     }
     this.listState = 0;
-    if (current && current <= this.pageTotal) {
-      this.config.current = current;
+    if (pageIndex && pageIndex <= this.pageTotal) {
+      this.config.pageIndex = pageIndex;
     } else {
-      (<number>this.config.current)++;
+      (<number>this.config.pageIndex)++;
     }
     return ajax({
       url: this.config.url,
       data: Object.assign(
         {
-          current: this.config.current,
-          size: this.config.size
+          pageIndex: this.config.pageIndex,
+          pageSize: this.config.pageSize
         },
         this.config.data
       ),
@@ -259,7 +260,7 @@ export class listAjax {
         this.pageTotal = res.data.pages;
         if (this.pageTotal === 0) {
           this.listState = 2;
-        } else if (this.pageTotal === this.config.current) {
+        } else if (this.pageTotal === this.config.pageIndex) {
           this.listState = 3;
         } else {
           this.listState = 0;
@@ -296,7 +297,7 @@ export class listAjax {
    * 重置列表,列表状态
    */
   refreshPage() {
-    this.config.current = 0;
+    this.config.pageIndex = 0;
     this.getList(0);
   }
 }

@@ -17,3 +17,40 @@ export function login(username: string, password: string) {
     })
   });
 }
+
+/**
+ * 获取分类列表
+ */
+export function classificationList(data: any) {
+  return ajax({
+    url: "/classification/list",
+    data: JSON.stringify(data)
+  });
+}
+/**
+ * 删除分类
+ */
+export function classificationDel(data: any) {
+  return ajax({
+    url: "/classification/del",
+    data: JSON.stringify(data)
+  });
+}
+/**
+ * 新增分类
+ */
+export function classificationCreat(data: any) {
+  return ajax({
+    url: "/classification/creat",
+    data: JSON.stringify(data)
+  });
+}
+/**
+ * 编辑分类
+ */
+export function classificationUpdate(data: any) {
+  return ajax({
+    url: "/classification/update",
+    data: JSON.stringify(data)
+  });
+}

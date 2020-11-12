@@ -43,6 +43,6 @@ export interface listAjaxOptions {
   url: string;
   data?: any;
   method?: "POST" | "GET";
-  current?: number;
-  size?: number;
+  pageIndex?: number;
+  pageSize?: number;
 }

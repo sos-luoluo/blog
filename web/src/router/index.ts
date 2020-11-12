@@ -32,7 +32,14 @@ const routes = [
   {
     path: "/admin",
     name: "admin",
-    component: () => import("../views/admin/Admin.vue")
+    component: () => import("../views/admin/Admin.vue"),
+    children: [
+      {
+        path: "classification",
+        name: "classification",
+        component: () => import("../views/admin/Classification.vue")
+      }
+    ]
   }
 ];
 
