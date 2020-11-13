@@ -2,7 +2,7 @@
   <div class="header">
     <div class="left">
       <span>博客后台管理系统</span>
-      <span>欢迎你：落落</span>
+      <span>欢迎你：{{ user.username }}</span>
     </div>
     <div class="right">
       <div class="btn">修改密码</div>
@@ -11,8 +11,14 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({});
+import { Component, Vue } from "vue-property-decorator";
+import { mapState } from "vuex";
+@Component({})
+export default class Header extends Vue {
+  get user() {
+    return this.$store.state.user;
+  }
+}
 </script>
 <style lang="less" scoped>
 @import "../../../styles/config.less";

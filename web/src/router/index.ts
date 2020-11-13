@@ -38,6 +38,11 @@ const routes = [
         path: "classification",
         name: "classification",
         component: () => import("../views/admin/Classification.vue")
+      },
+      {
+        path: "user",
+        name: "user",
+        component: () => import("../views/admin/User.vue")
       }
     ]
   }

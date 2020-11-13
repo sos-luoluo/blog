@@ -17,7 +17,23 @@ export function login(username: string, password: string) {
     })
   });
 }
-
+/**
+ * 获取用户信息
+ */
+export function getUserInfo() {
+  return ajax({
+    url: "/user/info"
+  });
+}
+/**
+ * 获取用户列表
+ */
+export function userList(data: any) {
+  return ajax({
+    url: "/user/list",
+    data: JSON.stringify(data)
+  });
+}
 /**
  * 获取分类列表
  */

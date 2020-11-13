@@ -1,5 +1,5 @@
+import { getUserInfo } from "@/api/index";
 // 用户信息
-
 const user = {
   state: {
     userId: undefined
@@ -24,7 +24,13 @@ const user = {
       formData: object
     ) {},
     // 登出
-    loginOut({ commit, state }: { commit: Function; state: object }) {}
+    loginOut({ commit, state }: { commit: Function; state: object }) {},
+    // 获取当前登录用户信息
+    getUserInfo({ commit, state }: { commit: Function; state: object }) {
+      getUserInfo().then((res: any) => {
+        commit("setUser", res.data);
+      });
+    }
   }
 };
 export default user;

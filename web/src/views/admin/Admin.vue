@@ -24,7 +24,11 @@ import Nav from "./components/Nav.vue";
     Nav
   }
 })
-export default class Admin extends Vue {}
+export default class Admin extends Vue {
+  mounted() {
+    this.$store.dispatch("getUserInfo");
+  }
+}
 </script>
 <style lang="less" scoped>
 .admin {
