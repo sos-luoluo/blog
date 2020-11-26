@@ -20,7 +20,6 @@ app.use(
 );
 app.use(koaBody());
 app.use(async function getUser(ctx: any, next: any) {
-    console.log(ctx);
     ctx.user = await getUserByToken(ctx.cookies.get("token"));
     await next();
 });

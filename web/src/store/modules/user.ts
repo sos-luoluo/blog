@@ -1,4 +1,5 @@
 import { getUserInfo } from "@/api/index";
+import router from "@/router/index";
 // 用户信息
 const user = {
   state: {
@@ -27,9 +28,13 @@ const user = {
     loginOut({ commit, state }: { commit: Function; state: object }) {},
     // 获取当前登录用户信息
     getUserInfo({ commit, state }: { commit: Function; state: object }) {
-      getUserInfo().then((res: any) => {
-        commit("setUser", res.data);
-      });
+      getUserInfo()
+        .then((res: any) => {
+          commit("setUser", res.data);
+        })
+        .catch(err => {
+          router.replace({ path: "/login" });
+        });
     }
   }
 };
