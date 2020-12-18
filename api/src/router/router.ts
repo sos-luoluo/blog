@@ -1,6 +1,7 @@
 const Router = require("koa-router");
 import { login as userLogin, resetPassword as userResetPassword, getUserInfo as userGetUserInfo, getUserList as userGetUserList } from "../service/user";
 import { list as classificationList, creat as classificationCreat, update as classificationUpdate, del as classificationDel } from "../service/classification";
+import {file as uploadFile } from "../service/upload"
 const router = new Router({
     prefix: "/api",
 });
@@ -8,7 +9,7 @@ router.get("/test", async (ctx: any, next: any) => {
     await new Promise((resolve) => {
         setTimeout(() => {
             ctx.body = "这是测试接口";
-            resolve();
+            resolve(undefined);
         }, 2000);
     });
     next();
@@ -21,4 +22,5 @@ router.post("/classification/list", classificationList);
 router.post("/classification/creat", classificationCreat);
 router.post("/classification/update", classificationUpdate);
 router.post("/classification/del", classificationDel);
+router.post("/upload/file", uploadFile);
 export default router;

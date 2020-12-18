@@ -7,6 +7,7 @@
   "author": "luoluo",
   "license": "ISC",
   "dependencies": {
+    "@koa/multer": "^3.0.0",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-bodyparser": "^4.3.0",
@@ -23,6 +24,7 @@
     "uuid": "^8.3.1"
   },
   "devDependencies": {
+    "@types/koa__multer": "^2.0.2",
     "@types/redis": "^2.8.28",
     "@types/uuid": "^8.3.0"
   }
