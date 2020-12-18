@@ -1,7 +1,7 @@
 import exception from "../exception/index";
 const fs = require("fs");
 const path = require("path");
-
+// 文件上传接口，必须以表单形式上传
  async function file(ctx: any, next: any) {
     if (ctx.user) {
         // 上传单个文件
