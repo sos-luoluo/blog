@@ -35,6 +35,15 @@ export function userList(data: any) {
   });
 }
 /**
+ * 修改当前登录用户密码
+ */
+export function resetPassword(data: any) {
+  return ajax({
+    url: "/user/resetpassword",
+    data: JSON.stringify(data)
+  });
+}
+/**
  * 获取分类列表
  */
 export function classificationList(data: any) {

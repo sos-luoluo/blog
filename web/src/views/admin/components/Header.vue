@@ -5,7 +5,7 @@
       <span>欢迎你：{{ user.username }}</span>
     </div>
     <div class="right">
-      <div class="btn">修改密码</div>
+      <div class="btn" @click="updatePassword">修改密码</div>
       <div class="btn">退出</div>
     </div>
   </div>
@@ -13,10 +13,44 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mapState } from "vuex";
+import { resetPassword } from "@/api/index";
+
 @Component({})
 export default class Header extends Vue {
+  password: string = "";
+  newPassword: string = "";
   get user() {
     return this.$store.state.user;
+  }
+  updatePassword(){
+    this.$Modal.confirm({
+      render: (h: any) => {
+        return h("Input", {
+          props: {
+            autofocus: true,
+            type: "password",
+            placeholder: "请输入新密码"
+          },
+          on: {
+            input: (val: string) => {
+              this.password = val;
+            }
+          }
+        });
+      },
+      onOk: () => {
+        if (this.password) {
+          resetPassword({
+            username: this.user.username,
+            newPassword: this.password
+          }).then((res: any) => {
+            this.$Message.info("更新成功");
+          });
+        } else {
+          this.$Message.info("请输入密码");
+        }
+      }
+    });
   }
 }
 </script>
