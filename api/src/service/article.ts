@@ -5,7 +5,27 @@ import { levelAuth } from "../auth/auth";
 /**
  * 获取文章
  */
-async function get(ctx: any, next: any) {
+async function list(ctx: any, next: any) {
+    const { pageSize = 10, pageIndex = 1 } = ctx.request.body;
+    const list = await ArticleModel.findAll({
+        offset: pageSize * (pageIndex - 1),
+        limit: pageSize,
+    });
+    const total = await ArticleModel.count();
+    const res = {
+        code: 0,
+        data: {
+            pageSize: pageSize,
+            pageIndex: pageIndex,
+            list: list || [],
+            total: total,
+        },
+        message: "查询成功",
+    };
+    ctx.body = JSON.stringify(res);
+    next();
+}
+async function getOne(ctx: any, next: any) {
     const { id } = ctx.request.body;
     if(id){
         const article = await ArticleModel.findOne({ where: { id: id } });
@@ -111,4 +131,4 @@ async function del(ctx: any, next: any) {
     }
     next();
 }
-export { get,creat,update,del };
+export { list, getOne,creat,update,del };

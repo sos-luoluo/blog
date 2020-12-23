@@ -5,10 +5,13 @@
     </div>
     <div class="menu_box"></div>
     <div class="list_box">
-      <Table stripe :columns="columns" :data="list"> </Table>
+      <el-table stripe style="width: 100%" :data="list">
+        <el-table-column prop="username" label="用户名"></el-table-column>
+        <el-table-column prop="level" label="等级"></el-table-column>
+      </el-table>
     </div>
     <div class="page_box">
-      <Page :total="totalPage" @change="resetPageIndex" />
+      <el-pagination :page-count="totalPage" @current-change="resetPageIndex" />
     </div>
   </div>
 </template>
@@ -23,16 +26,6 @@ export default class Classification extends Vue {
   listState: number = 0; // 0正常 1已无更多 2暂无数据
   totalPage: number = 0;
   list: Array<any> = [];
-  columns: Array<any> = [
-    {
-      title: "名称",
-      key: "username"
-    },
-    {
-      title: "等级",
-      key: "level"
-    }
-  ];
   mounted() {
     this.getData();
   }

@@ -42,16 +42,7 @@ import { Component, Prop, Vue, Ref } from "vue-property-decorator";
 import { VueCropper } from "vue-cropper";
 import tips from "@/components/Tips/index";
 import confirm from "@/components/Confirm/index";
-
-const uploadApi = function(formDate: FormData) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({
-        data: "http://192.168.0.187:8001/images/pic_logo1.png"
-      });
-    }, 1000);
-  });
-};
+import { uploadFile } from "@/api/index";
 
 @Component({
   components: {
@@ -91,7 +82,7 @@ export default class ListState extends Vue {
     }
     if (!this.isCropper) {
       let formData = new FormData();
-      formData.append("file", file.raw, file.name);
+      formData.append("file", file, name);
       formData.append("type", type);
       this.upload(formData);
     } else {
@@ -123,9 +114,9 @@ export default class ListState extends Vue {
   }
   // 图片大小限制
   beforeAvatarUpload(file: File) {
-    const isLt1M = file.size / 1024 / 1024 < 1;
+    const isLt1M = file.size / 1024 / 1024 < 2;
     if (!isLt1M) {
-      tips("上传头像图片大小不能超过 1MB!");
+      tips("上传头像图片大小不能超过 2MB!");
     }
     return isLt1M;
   }
@@ -139,11 +130,11 @@ export default class ListState extends Vue {
       });
     }, "image/jpeg");
   }
-  upload(formDate: FormData, callback?: Function) {
-    uploadApi(formDate)
+  upload(formData: FormData, callback?: Function) {
+    uploadFile(formData)
       .then((res: any) => {
-        this.imgList.push(res.data);
-        this.$emit("add", this.imgList);
+        this.imgList.push(res.data.url);
+        this.$emit("change", this.imgList);
         callback && callback(res);
       })
       .catch(err => {
@@ -158,7 +149,7 @@ export default class ListState extends Vue {
     }).then(res => {
       this.imgList.splice(i, 1);
       tips("操作成功!");
-      this.$emit("del", this.imgList);
+      this.$emit("change", this.imgList);
     });
   }
   hidePop() {
@@ -204,6 +195,7 @@ export default class ListState extends Vue {
     position: relative;
     height: 100%;
     width: 100px;
+    border: 1px dashed #999;
     .input {
       width: 100%;
       height: 100%;

@@ -8,7 +8,7 @@ const path = require("path");
         const file = ctx.request.files.file; // 获取上传文件
         // 创建可读流
         const reader = fs.createReadStream(file.path);
-        let filePath = path.join(__dirname, "../../upload/") + `${Date.now()}-${file.name}`;
+        let filePath = path.join(__dirname, "../../../upload/") + `${Date.now()}-${file.name}`;
         filePath=filePath.replace(/\\/g,"/")
         // 创建可写流
         const upStream = fs.createWriteStream(filePath);

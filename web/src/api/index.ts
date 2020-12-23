@@ -4,6 +4,7 @@
  * @version 2.0.0
  */
 import { ajax } from "@/utils/ajax";
+import { Upload } from "element-ui";
 
 /**
  * 用户登录
@@ -15,6 +16,15 @@ export function login(username: string, password: string) {
       username,
       password
     })
+  });
+}
+/**
+ * 上传文件
+ */
+export function uploadFile(formDate: FormData) {
+  return ajax({
+    url: "/upload/file",
+    data: formDate
   });
 }
 /**
@@ -76,6 +86,44 @@ export function classificationCreat(data: any) {
 export function classificationUpdate(data: any) {
   return ajax({
     url: "/classification/update",
+    data: JSON.stringify(data)
+  });
+}
+/**
+ * 新增文章
+ */
+export function articleCreat(data: any) {
+  return ajax({
+    url: "/aritcle/creat",
+    data: JSON.stringify(data)
+  });
+}
+/**
+ * 更新文章
+ */
+export function articleUpdate(data: any) {
+  return ajax({
+    url: "/aritcle/update",
+    data: JSON.stringify(data)
+  });
+}
+/**
+ * 删除文章
+ */
+export function articleDel(id: number) {
+  return ajax({
+    url: "/aritcle/del",
+    data: JSON.stringify({
+      id
+    })
+  });
+}
+/**
+ * 获取文章列表
+ */
+export function articleList(data: any) {
+  return ajax({
+    url: "/article/list",
     data: JSON.stringify(data)
   });
 }

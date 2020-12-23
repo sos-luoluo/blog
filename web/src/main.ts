@@ -4,8 +4,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import i18n from "./locale/index";
-import ViewUI from "view-design";
-import "view-design/dist/styles/iview.css";
+import Element from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import "@/filters/index";
 import "./icons"; // icon
@@ -21,7 +21,7 @@ logManager.pushMsg({
 });
 
 Vue.config.productionTip = false;
-Vue.use(ViewUI);
+Vue.use(Element);
 
 Vue.component("ValidationProvider", ValidationProvider);
 Vue.component("ValidationObserver", ValidationObserver);

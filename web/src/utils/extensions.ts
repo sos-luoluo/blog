@@ -79,7 +79,7 @@ Object.defineProperty(Object.prototype, "string", {
 /**
  * 判断对象是否为空对象
  */
-Object.defineProperty(Object.prototype, "isEmpty", {
+Object.defineProperty(Object.prototype, "isEmptyObj", {
   value: function(): boolean {
     const keys = Object.keys(this);
     return keys.length === 0;

@@ -1,0 +1,36 @@
+{
+    "apps": {
+        "name": "blog",
+        "script": "./index.ts",
+        "cwd": "./",
+        "args": "-T -r tsconfig-paths/register ./src/index.ts",
+        "interpreter": "./node_modules/.bin/ts-node",
+        "interpreter_args": "-P ./server -r tsconfig-paths/register",
+        "watch": true,
+        "ignore_watch": [
+            "node_modules",
+            "logs"
+        ],
+        "exec_mode": "cluster_mode", 
+        "instances": 1,
+        "max_memory_restart": "1G",
+        "error_file": "./logs/app-err.log",
+        "out_file": "./logs/app-out.log",
+        "merge_logs": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "min_uptime": "60s",
+        "max_restarts": 30,
+        "autorestart": true,
+        "cron_restart": "",
+        "restart_delay": "10s",
+        "env": {
+           "NODE_ENV": "production"
+        },
+        "env_dev": {
+            "NODE_ENV": "development"
+        },
+        "env_test": {
+            "NODE_ENV": "test"
+        }
+    }
+}

@@ -2,7 +2,7 @@ const Router = require("koa-router");
 import { login as userLogin, resetPassword as userResetPassword, getUserInfo as userGetUserInfo, getUserList as userGetUserList } from "../service/user";
 import { list as classificationList, creat as classificationCreat, update as classificationUpdate, del as classificationDel } from "../service/classification";
 import {file as uploadFile } from "../service/upload"
-import { get as aritcleGet, creat as aritcleCreat, update as aritcleUpdate, del as aritclenDel } from "../service/article";
+import { list as aritcleList, getOne as articleGetOne, creat as aritcleCreat, update as aritcleUpdate, del as aritclenDel } from "../service/article";
 const router = new Router({
     prefix: "/api",
 });
@@ -24,7 +24,8 @@ router.post("/classification/creat", classificationCreat);
 router.post("/classification/update", classificationUpdate);
 router.post("/classification/del", classificationDel);
 router.post("/upload/file", uploadFile);
-router.post("/aritcle/get", aritcleGet);
+router.post("/article/list", aritcleList);
+router.post("/aritcle/getOne", articleGetOne);
 router.post("/aritcle/creat", aritcleCreat);
 router.post("/aritcle/update", aritcleUpdate);
 router.post("/aritcle/del", aritclenDel);
