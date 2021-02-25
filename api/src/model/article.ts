@@ -12,7 +12,7 @@ ArticleModel.init({
     title:DataTypes.STRING,
     cover:DataTypes.STRING,
     classification_id:DataTypes.BIGINT,
-    content:DataTypes.STRING,
+    content:DataTypes.TEXT,
     readed:DataTypes.BIGINT,
     commented: DataTypes.BIGINT
 }, {

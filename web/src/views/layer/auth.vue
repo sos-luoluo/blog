@@ -67,6 +67,10 @@ export default class Auth extends Vue {
       border-radius: 50%;
       border: 0.01rem solid @c_bg_line;
       box-shadow: 0 0.02rem 0.1rem 0 rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0 0.02rem 0.1rem 0 rgba(0, 0, 0, 0.2);
+      }
     }
   }
   .name {

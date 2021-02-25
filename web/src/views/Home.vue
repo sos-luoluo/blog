@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="article_box">
-          <Topic></Topic>
+          <Topic :list="articleList"></Topic>
         </div>
       </div>
     </div>
@@ -61,6 +61,7 @@ import "swiper/css/swiper.css";
 import Auth from "@/views/layer/auth.vue";
 import Topic from "@/views/layer/topic.vue";
 import Footer from "@/views/layer/footer.vue";
+import { articleList } from "@/api/index";
 @Component({
   components: {
     Guide,
@@ -73,7 +74,16 @@ export default class Home extends Vue {
   bgList: Array<string> = [bg1, bg2, bg3, bg4];
   swiper: any;
   paginationImg: string = icon;
-  created() {}
+  articleList: Array<any> = [];
+  created() {
+    // 获取最近的十篇文章
+    articleList({
+      pageSize: 10,
+      pageIndex: 1
+    }).then((res: any) => {
+      this.articleList = res.data.list;
+    });
+  }
   mounted() {
     this.swiper = new Swiper("#swiper", {
       loop: true,

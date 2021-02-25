@@ -15,6 +15,7 @@
             :key="item.id"
             @mouseenter.self="lineCtrl(i)"
             @mouseleave.self="lineCtrl(activeIndex)"
+            @click="nav(item.path)"
           >
             <div class="title" @mouseleave.prevent.stop="doNone">
               {{ item.title }}
@@ -59,6 +60,11 @@ export default class Guide extends Vue {
     this.lineLeft = 18 * index;
   }
   doNone() {}
+  nav(path: string) {
+    this.$router.push({
+      path: path
+    });
+  }
 }
 </script>
 <style lang="less" scoped>

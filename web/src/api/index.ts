@@ -94,7 +94,7 @@ export function classificationUpdate(data: any) {
  */
 export function articleCreat(data: any) {
   return ajax({
-    url: "/aritcle/creat",
+    url: "/article/creat",
     data: JSON.stringify(data)
   });
 }
@@ -103,7 +103,7 @@ export function articleCreat(data: any) {
  */
 export function articleUpdate(data: any) {
   return ajax({
-    url: "/aritcle/update",
+    url: "/article/update",
     data: JSON.stringify(data)
   });
 }
@@ -112,7 +112,7 @@ export function articleUpdate(data: any) {
  */
 export function articleDel(id: number) {
   return ajax({
-    url: "/aritcle/del",
+    url: "/article/del",
     data: JSON.stringify({
       id
     })
@@ -125,5 +125,16 @@ export function articleList(data: any) {
   return ajax({
     url: "/article/list",
     data: JSON.stringify(data)
+  });
+}
+/**
+ * 获取文章详情
+ */
+export function getArticleDetails(id: any) {
+  return ajax({
+    url: "/article/getOne",
+    data: JSON.stringify({
+      id
+    })
   });
 }
