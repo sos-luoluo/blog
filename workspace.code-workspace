@@ -5,9 +5,6 @@
 		},
 		{
 			"path": "web"
-		},
-		{
-			"path": "nginx"
 		}
 	]
 }
