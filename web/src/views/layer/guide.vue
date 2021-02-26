@@ -142,6 +142,26 @@ export default class Guide extends Vue {
             color: @c_333;
             line-height: 1.5;
             font-weight: bold;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .guide {
+    .wrap {
+      .box {
+        padding: 0 0.1rem;
+        .logo_box {
+          margin-right: 5%;
+        }
+        .menu_box {
+          .item {
+            .title {
+              font-size: @f_title_3;
+            }
           }
         }
       }

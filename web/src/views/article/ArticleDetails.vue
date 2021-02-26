@@ -51,6 +51,7 @@ export default class ArticleDetails extends Vue {
   .details_wrap {
     .details_box {
       width: 12rem;
+      max-width: 100%;
       margin: auto;
       padding: 0.3rem 0.2rem;
       .title_box {
@@ -80,6 +81,15 @@ export default class ArticleDetails extends Vue {
           font-size: 0.16rem;
           line-height: 1.8;
         }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .articledetails {
+    .details_wrap {
+      .details_box {
+        padding: 0.2rem 0.15rem;
       }
     }
   }

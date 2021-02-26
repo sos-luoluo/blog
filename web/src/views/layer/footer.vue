@@ -44,4 +44,11 @@ export default class Topic extends Vue {
     }
   }
 }
+@media (max-width: 1200px) {
+  .footer {
+    .content_box {
+      padding: 0.1rem 0.15rem;
+    }
+  }
+}
 </style>

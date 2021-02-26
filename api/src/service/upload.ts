@@ -18,7 +18,7 @@ const path = require("path");
         ctx.body = JSON.stringify({
             code: 0,
             data: {
-                url: "/upload"+fileName
+                url: "/upload/"+fileName
             },
             message: "文件上传成功",
         });

@@ -264,4 +264,17 @@ export default class Home extends Vue {
     }
   }
 }
+@media (max-width: 1200px) {
+  .home {
+    .content_wrap {
+      .content_box {
+        display: block;
+        padding: 0.15rem;
+        .auth_box {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 </style>

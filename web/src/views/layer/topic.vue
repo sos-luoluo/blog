@@ -90,6 +90,7 @@ export default class Topic extends Vue {
         align-items: center;
         div {
           flex-basis: 20%;
+          white-space: nowrap;
         }
       }
       .details {
@@ -116,6 +117,33 @@ export default class Topic extends Vue {
           text-align: justify;
           -webkit-line-clamp: 5;
           .multi_text_ellipsis;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .topic {
+    padding: 0;
+    .list_box {
+      .item {
+        padding: 0.1rem;
+        .info {
+          justify-content: space-between;
+        }
+        .details {
+          .cover {
+            width: 1rem;
+          }
+          .img {
+            width: 1rem;
+            height: 1rem;
+          }
+          .text {
+            font-size: 0.14rem;
+            line-height: 1.5;
+            -webkit-line-clamp: 4;
+          }
         }
       }
     }
